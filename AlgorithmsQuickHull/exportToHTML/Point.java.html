@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Point.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(128,128,128); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Point.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">class </span><span class="s1">Point { 
+    </span><span class="s0">private int </span><span class="s1">xval</span><span class="s0">, </span><span class="s1">yval</span><span class="s0">;</span><span class="s1"> 
+ 
+    Point(</span><span class="s0">int </span><span class="s1">x</span><span class="s0">, int </span><span class="s1">y) { 
+        </span><span class="s0">this</span><span class="s1">.xval = x</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">this</span><span class="s1">.yval = y</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">public int </span><span class="s1">getXval() { 
+        </span><span class="s0">return </span><span class="s1">xval</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">public int </span><span class="s1">getYval(){ 
+        </span><span class="s0">return </span><span class="s1">yval</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s2">//Cross Product determination</span><span class="s1"> 
+    </span><span class="s0">public boolean </span><span class="s1">isOnLeft(Point lineFrom</span><span class="s0">, </span><span class="s1">Point lineTo) { 
+        </span><span class="s0">return </span><span class="s1">((lineTo.getXval() - lineFrom.getXval())*(</span><span class="s0">this</span><span class="s1">.getYval() - lineFrom.getYval()) &gt; (lineTo.getYval() - lineFrom.getYval())*(</span><span class="s0">this</span><span class="s1">.getXval() - lineFrom.getXval()))</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s2">//test equivalency</span><span class="s1"> 
+    </span><span class="s0">public boolean </span><span class="s1">equals(Point comp) { 
+        </span><span class="s0">return </span><span class="s1">(</span><span class="s0">this</span><span class="s1">.xval == comp.getXval() &amp;&amp; </span><span class="s0">this</span><span class="s1">.yval == comp.getYval())</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s2">//find distance from this point to a line</span><span class="s1"> 
+    </span><span class="s0">public float </span><span class="s1">distFromLine(Point lineFrom</span><span class="s0">, </span><span class="s1">Point lineTo) { 
+        </span><span class="s0">int </span><span class="s1">lineXdist = lineTo.getXval() - lineFrom.getXval()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">int </span><span class="s1">lineYdist = lineTo.getYval() - lineFrom.getYval()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">int </span><span class="s1">pointXdist = lineFrom.getXval() - </span><span class="s0">this</span><span class="s1">.xval</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">int </span><span class="s1">pointYdist = lineFrom.getYval() - </span><span class="s0">this</span><span class="s1">.yval</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">int </span><span class="s1">dist = (lineXdist * pointXdist) - (lineYdist * pointYdist)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">return </span><span class="s1">Math.abs(dist)</span><span class="s0">;</span><span class="s1"> 
+    } 
+} 
+</span></pre>
+</body>
+</html>

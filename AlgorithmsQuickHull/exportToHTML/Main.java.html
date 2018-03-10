@@ -1,0 +1,220 @@
+<html>
+<head>
+<title>Main.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); }
+.s3 { color: rgb(104,151,187); }
+.s4 { color: rgb(106,135,89); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Main.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">//CS4306 #04</span><span class="s1"> 
+</span><span class="s0">//Brent Einolf</span><span class="s1"> 
+</span><span class="s0">//000719724</span><span class="s1"> 
+</span><span class="s0">//ProgAssignment 1</span><span class="s1"> 
+</span><span class="s0">//2/25/2018</span><span class="s1"> 
+</span><span class="s0">//BRENT EINOLF</span><span class="s1"> 
+</span><span class="s0">//Score:</span><span class="s1"> 
+ 
+</span><span class="s2">import </span><span class="s1">java.util.ArrayList</span><span class="s2">;</span><span class="s1"> 
+ 
+</span><span class="s2">public class </span><span class="s1">Main { 
+ 
+    </span><span class="s2">public static void </span><span class="s1">main(String[] args) { 
+ 
+        </span><span class="s0">//Test List</span><span class="s1"> 
+        ArrayList&lt;Point&gt; toBeSorted = </span><span class="s2">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s2">;</span><span class="s1"> 
+ 
+        </span><span class="s0">//Container for hull</span><span class="s1"> 
+        ArrayList&lt;Point&gt; hull = </span><span class="s2">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s2">;</span><span class="s1"> 
+ 
+        </span><span class="s0">//Test Points</span><span class="s1"> 
+        Point p3 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">0</span><span class="s2">,</span><span class="s3">3</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point p4 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">1</span><span class="s2">,</span><span class="s3">1</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point p5 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">2</span><span class="s2">,</span><span class="s3">2</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point p6 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">4</span><span class="s2">,</span><span class="s3">4</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point p7 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">0</span><span class="s2">,</span><span class="s3">0</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point p8 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">1</span><span class="s2">,</span><span class="s3">2</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point p9 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">3</span><span class="s2">,</span><span class="s3">1</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point p10 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">3</span><span class="s2">,</span><span class="s3">3</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+ 
+        toBeSorted.add(p3)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(p4)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(p5)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(p6)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(p7)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(p8)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(p9)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(p10)</span><span class="s2">;</span><span class="s1"> 
+ 
+ 
+        hull = QuickHull(toBeSorted)</span><span class="s2">;</span><span class="s1"> 
+ 
+        System.out.println(</span><span class="s4">&quot;First Set of test points OUTPUT&quot;</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        </span><span class="s2">for</span><span class="s1">(</span><span class="s2">int </span><span class="s1">i=</span><span class="s3">0</span><span class="s2">; </span><span class="s1">i&lt;=hull.size()-</span><span class="s3">1</span><span class="s2">; </span><span class="s1">i++) { 
+            System.out.print(hull.get(i).getXval() + </span><span class="s4">&quot;,&quot;</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+            System.out.print(hull.get(i).getYval())</span><span class="s2">;</span><span class="s1"> 
+            System.out.println(</span><span class="s4">&quot;&quot;</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        } 
+ 
+        toBeSorted.clear()</span><span class="s2">;</span><span class="s1"> 
+ 
+        </span><span class="s0">//Test Points Set 2</span><span class="s1"> 
+        Point testp1 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">1</span><span class="s2">,</span><span class="s3">6</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point testp2 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">4</span><span class="s2">,</span><span class="s3">15</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point testp3 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">7</span><span class="s2">,</span><span class="s3">7</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point testp4 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">10</span><span class="s2">,</span><span class="s3">13</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point testp5 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">11</span><span class="s2">,</span><span class="s3">6</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point testp6 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">11</span><span class="s2">,</span><span class="s3">18</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point testp7 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">11</span><span class="s2">,</span><span class="s3">21</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point testp8 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">12</span><span class="s2">,</span><span class="s3">10</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point testp9 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">15</span><span class="s2">,</span><span class="s3">18</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point testp10 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">16</span><span class="s2">,</span><span class="s3">6</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point testp11 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">18</span><span class="s2">,</span><span class="s3">3</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point testp12 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">18</span><span class="s2">,</span><span class="s3">12</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point testp13 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">19</span><span class="s2">,</span><span class="s3">15</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point testp14 = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">22</span><span class="s2">,</span><span class="s3">19</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+ 
+ 
+        toBeSorted.add(testp1)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(testp2)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(testp3)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(testp4)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(testp5)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(testp6)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(testp6)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(testp7)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(testp8)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(testp9)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(testp10)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(testp11)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(testp12)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(testp13)</span><span class="s2">;</span><span class="s1"> 
+        toBeSorted.add(testp14)</span><span class="s2">;</span><span class="s1"> 
+ 
+        hull = QuickHull(toBeSorted)</span><span class="s2">;</span><span class="s1"> 
+ 
+        System.out.println(</span><span class="s4">&quot;Second Set of test points OUTPUT&quot;</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        </span><span class="s2">for</span><span class="s1">(</span><span class="s2">int </span><span class="s1">i=</span><span class="s3">0</span><span class="s2">; </span><span class="s1">i&lt;=hull.size()-</span><span class="s3">1</span><span class="s2">; </span><span class="s1">i++) { 
+            System.out.print(hull.get(i).getXval() + </span><span class="s4">&quot;,&quot;</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+            System.out.print(hull.get(i).getYval())</span><span class="s2">;</span><span class="s1"> 
+            System.out.println(</span><span class="s4">&quot;&quot;</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        } 
+ 
+    } 
+ 
+    </span><span class="s2">static </span><span class="s1">ArrayList&lt;Point&gt; QuickHull(ArrayList&lt;Point&gt; toFind) { 
+ 
+        ArrayList&lt;Point&gt; convexHull = </span><span class="s2">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s2">;</span><span class="s1"> 
+ 
+        </span><span class="s2">if </span><span class="s1">(toFind.size() &lt;= </span><span class="s3">3</span><span class="s1">) { 
+            </span><span class="s2">throw new </span><span class="s1">IllegalArgumentException(</span><span class="s4">&quot;Must be greater than 3 points to find hull&quot;</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        } 
+ 
+        </span><span class="s0">//Find leftmost and rightmost X values</span><span class="s1"> 
+        Point minX = toFind.get(</span><span class="s3">0</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        Point maxX = toFind.get(</span><span class="s3">0</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+ 
+        </span><span class="s2">for </span><span class="s1">(</span><span class="s2">int </span><span class="s1">i = </span><span class="s3">1</span><span class="s2">; </span><span class="s1">i &lt;= (toFind.size() - </span><span class="s3">1</span><span class="s1">)</span><span class="s2">; </span><span class="s1">i++) { 
+            Point point = toFind.get(i)</span><span class="s2">;</span><span class="s1"> 
+            </span><span class="s2">if </span><span class="s1">(point.getXval() &gt; maxX.getXval()) { 
+                maxX = point</span><span class="s2">;</span><span class="s1"> 
+            } </span><span class="s2">else if</span><span class="s1">(point.getXval() &lt; minX.getXval()) { 
+                minX = point</span><span class="s2">;</span><span class="s1"> 
+            } 
+ 
+        } 
+ 
+        </span><span class="s0">//Find points to the left and right of the line drawn between the extreme values</span><span class="s1"> 
+        ArrayList&lt;Point&gt; leftOfLine = </span><span class="s2">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s2">;</span><span class="s1"> 
+        ArrayList&lt;Point&gt; rightOfLine = </span><span class="s2">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s2">;</span><span class="s1"> 
+        </span><span class="s2">for </span><span class="s1">(</span><span class="s2">int </span><span class="s1">i = </span><span class="s3">0</span><span class="s2">; </span><span class="s1">i &lt;= (toFind.size() - </span><span class="s3">1</span><span class="s1">)</span><span class="s2">; </span><span class="s1">i++) { 
+            Point point = toFind.get(i)</span><span class="s2">;</span><span class="s1"> 
+            </span><span class="s2">if</span><span class="s1">(!point.equals(minX) || !point.equals(maxX)) { 
+                </span><span class="s2">if</span><span class="s1">(point.isOnLeft(minX</span><span class="s2">,</span><span class="s1">maxX)) { 
+                    leftOfLine.add(point)</span><span class="s2">;</span><span class="s1"> 
+                } 
+                </span><span class="s2">else </span><span class="s1">{ 
+                    rightOfLine.add(point)</span><span class="s2">;</span><span class="s1"> 
+                } 
+            } 
+        } 
+ 
+ 
+        ArrayList&lt;Point&gt; division = </span><span class="s2">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s2">;</span><span class="s1"> 
+ 
+        division = Subset(leftOfLine</span><span class="s2">, </span><span class="s1">minX</span><span class="s2">, </span><span class="s1">maxX)</span><span class="s2">;</span><span class="s1"> 
+        convexHull.addAll(division)</span><span class="s2">;</span><span class="s1"> 
+        convexHull.add(maxX)</span><span class="s2">;</span><span class="s1"> 
+ 
+        division = Subset(rightOfLine</span><span class="s2">, </span><span class="s1">maxX</span><span class="s2">, </span><span class="s1">minX)</span><span class="s2">;</span><span class="s1"> 
+        convexHull.addAll(division)</span><span class="s2">;</span><span class="s1"> 
+ 
+        </span><span class="s2">return </span><span class="s1">convexHull</span><span class="s2">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s2">static </span><span class="s1">ArrayList&lt;Point&gt; Subset(ArrayList&lt;Point&gt; set</span><span class="s2">, </span><span class="s1">Point min</span><span class="s2">, </span><span class="s1">Point max) { 
+ 
+        </span><span class="s0">//break condition</span><span class="s1"> 
+        </span><span class="s2">if </span><span class="s1">(set.size() &lt;= </span><span class="s3">1</span><span class="s1">) { 
+            </span><span class="s2">return </span><span class="s1">set</span><span class="s2">;</span><span class="s1"> 
+        } 
+ 
+        ArrayList&lt;Point&gt; hullPoints = </span><span class="s2">new </span><span class="s1">ArrayList&lt;Point&gt;()</span><span class="s2">;</span><span class="s1"> 
+ 
+        </span><span class="s0">//Find the point that is the maximum distance from line</span><span class="s1"> 
+        Point maxDistPoint = </span><span class="s2">new </span><span class="s1">Point(</span><span class="s3">0</span><span class="s2">,</span><span class="s3">0</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+        </span><span class="s2">float </span><span class="s1">currMaxDistance = -</span><span class="s3">1</span><span class="s2">;</span><span class="s1"> 
+ 
+        </span><span class="s2">for</span><span class="s1">(</span><span class="s2">int </span><span class="s1">i = </span><span class="s3">0</span><span class="s2">; </span><span class="s1">i &lt;= set.size() - </span><span class="s3">1</span><span class="s2">; </span><span class="s1">i++) { 
+            Point point = set.get(i)</span><span class="s2">;</span><span class="s1"> 
+            </span><span class="s2">float </span><span class="s1">distance = point.distFromLine(min</span><span class="s2">, </span><span class="s1">max)</span><span class="s2">;</span><span class="s1"> 
+            </span><span class="s2">if </span><span class="s1">(distance &gt; currMaxDistance) { 
+                currMaxDistance = distance</span><span class="s2">;</span><span class="s1"> 
+                maxDistPoint = point</span><span class="s2">;</span><span class="s1"> 
+            } 
+        } 
+ 
+        </span><span class="s0">//remove from subset to add to Hull later</span><span class="s1"> 
+        set.remove(maxDistPoint)</span><span class="s2">;</span><span class="s1"> 
+ 
+ 
+        </span><span class="s0">//split problem into 2 subsets</span><span class="s1"> 
+        ArrayList&lt;Point&gt; subSet1 = </span><span class="s2">new  </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s2">;</span><span class="s1"> 
+        ArrayList&lt;Point&gt; subSet2 = </span><span class="s2">new  </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s2">;</span><span class="s1"> 
+ 
+        </span><span class="s2">for </span><span class="s1">(</span><span class="s2">int </span><span class="s1">i = </span><span class="s3">0</span><span class="s2">; </span><span class="s1">i &lt;= set.size() - </span><span class="s3">1</span><span class="s2">; </span><span class="s1">i++) { 
+            Point point = set.get(i)</span><span class="s2">;</span><span class="s1"> 
+            </span><span class="s2">if </span><span class="s1">(point.isOnLeft(min</span><span class="s2">, </span><span class="s1">maxDistPoint)) { 
+                subSet1.add(point)</span><span class="s2">;</span><span class="s1"> 
+            } </span><span class="s2">else if </span><span class="s1">(point.isOnLeft(min</span><span class="s2">, </span><span class="s1">maxDistPoint)) { 
+                subSet2.add(point)</span><span class="s2">;</span><span class="s1"> 
+            } 
+        } 
+ 
+        </span><span class="s0">//ignore all values not in subsets;</span><span class="s1"> 
+        set.clear()</span><span class="s2">;</span><span class="s1"> 
+ 
+        ArrayList&lt;Point&gt; partition = Subset(subSet1</span><span class="s2">, </span><span class="s1">min</span><span class="s2">, </span><span class="s1">maxDistPoint)</span><span class="s2">;</span><span class="s1"> 
+        hullPoints.addAll(partition)</span><span class="s2">;</span><span class="s1"> 
+        hullPoints.add(maxDistPoint)</span><span class="s2">;</span><span class="s1"> 
+ 
+        partition = Subset(subSet2</span><span class="s2">, </span><span class="s1">maxDistPoint</span><span class="s2">, </span><span class="s1">max)</span><span class="s2">;</span><span class="s1"> 
+        hullPoints.addAll(partition)</span><span class="s2">;</span><span class="s1"> 
+ 
+        </span><span class="s2">return </span><span class="s1">hullPoints</span><span class="s2">;</span><span class="s1"> 
+    } 
+} 
+</span></pre>
+</body>
+</html>
