@@ -29,8 +29,8 @@ class Point {
         int lineXdist = lineTo.getXval() - lineFrom.getXval();
         int lineYdist = lineTo.getYval() - lineFrom.getYval();
         int pointXdist = lineFrom.getXval() - this.xval;
-        int pointYdist = lineFrom.getYval() - this.yval;
-        int dist = (lineXdist * pointXdist) - (lineYdist * pointYdist);
+        int pointYdists = lineFrom.getYval() - this.yval;
+        int dist = (lineXdist * pointXdist) - (lineYdist * pointYdists);
         return Math.abs(dist);
     }
 }
